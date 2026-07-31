@@ -1,0 +1,138 @@
+:root {
+  --bg: #050519;
+  --bg-deep: #03030f;
+  --primary: #183ef6;
+  --cyan: #00bfe8;
+  --text: #ffffff;
+
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg-deep);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nunito', system-ui, sans-serif;
+  font-weight: 800;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+::selection {
+  background: rgba(24, 62, 246, 0.55);
+  color: #fff;
+}
+
+@keyframes bb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: bb-spin 0.8s linear infinite;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---- Leaflet map (dark theme to match the deck) ---- */
+.leaflet-container {
+  background: var(--bg);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  outline: none;
+}
+/* Attribution kept but made subtle/on-brand. */
+.leaflet-control-attribution {
+  background: rgba(3, 3, 15, 0.6) !important;
+  color: rgba(255, 255, 255, 0.35) !important;
+  font-size: 11px !important;
+  padding: 2px 8px !important;
+  border-radius: 8px 0 0 0;
+}
+.leaflet-control-attribution a {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+/* Our custom markers are pure HTML — no default marker chrome. */
+.bb-pin-icon,
+.bb-label-icon {
+  background: transparent;
+  border: none;
+}
+.bb-pin-icon svg {
+  filter: drop-shadow(0 4px 10px rgba(0, 191, 232, 0.45));
+}
+/* Label chips routed into de-collided columns, joined to their dot by a leader line. */
+.bb-lchip {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px;
+  background: rgba(5, 5, 25, 0.92);
+  border: 1.5px solid rgba(0, 191, 232, 0.45);
+  border-radius: 10px;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.8);
+}
+.bb-lchip.left {
+  align-items: flex-end;
+  text-align: right;
+}
+.bb-lchip .bb-place {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1.1;
+}
+.bb-lchip .bb-val {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 3px;
+}
+
+/* Thin, on-brand scrollbar for the review page */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
