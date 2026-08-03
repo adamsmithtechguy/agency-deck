@@ -38,7 +38,17 @@ Output goes to `dist/` — deploy that folder to any static host (Cloudflare Pag
 
 ## Deployed preview
 
-Live at [connected-retail-keynote.pages.dev](https://connected-retail-keynote.pages.dev)
+**Live URL:** [bright-blue-retail-media.pages.dev](https://bright-blue-retail-media.pages.dev)
+
+Pushes to `main` deploy automatically via GitHub Actions (Cloudflare Pages).
+
+Manual deploy:
+
+```bash
+npm run deploy
+```
+
+Requires Cloudflare auth (`npx wrangler login` once, or set `CLOUDFLARE_API_TOKEN`).
 
 ## Structure
 
