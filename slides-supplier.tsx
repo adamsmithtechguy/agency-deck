@@ -195,13 +195,11 @@ const BUYERS = [
   { title: 'Existing suppliers', icon: Package, items: ['Increase sales', 'Support promotions', 'Launch new SKUs'] },
   { title: 'New suppliers', icon: Rocket, items: ['Enter UK retail', 'Test demand', 'Build distribution'] },
   { title: 'Brand launches', icon: Megaphone, items: ['Product listing', 'Media support', 'Sampling & activation', 'Live reporting'] },
-]
-// Non-endemic: brands buying media to reach our audience — not stocking the machines.
-const NONENDEMIC = [
-  { icon: Car, label: 'Automotive' },
-  { icon: Heart, label: 'Charity' },
-  { icon: UtensilsCrossed, label: 'Food & drink' },
-  { icon: Landmark, label: 'Finance' },
+  {
+    title: 'Non-endemic advertisers',
+    icons: [Car, Heart, UtensilsCrossed, Landmark],
+    items: ['Automotive', 'Charity', 'Food & drink', 'Finance'],
+  },
 ]
 const iconPanel: CSSProperties = {
   display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -209,7 +207,7 @@ const iconPanel: CSSProperties = {
   border: 'none',
 }
 export function SBuyers() {
-  const colTitle: CSSProperties = { fontFamily: font.heading, fontWeight: 800, fontSize: 28, marginBottom: 18 }
+  const colTitle: CSSProperties = { fontFamily: font.heading, fontWeight: 800, fontSize: 28, marginBottom: 18, textAlign: 'center' }
   return (
     <Slide>
       <motion.div variants={riseIn}><Eyebrow>Who can buy</Eyebrow></motion.div>
@@ -221,23 +219,19 @@ export function SBuyers() {
           <motion.div key={b.title} variants={riseIn} style={{ background: colors.surface, border: `1px solid ${colors.border}`, borderRadius: radius.lg, padding: 30, display: 'flex', flexDirection: 'column' }}>
             <div style={colTitle}>{b.title}</div>
             <div style={{ ...iconPanel, height: 230, borderRadius: radius.md, flexShrink: 0 }}>
-              <b.icon size={88} strokeWidth={2.2} color="#fff" />
+              {'icon' in b ? (
+                <b.icon size={88} strokeWidth={2.2} color="#fff" />
+              ) : (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, placeItems: 'center' }}>
+                  {b.icons.map((Icon, i) => (
+                    <Icon key={b.items[i]} size={56} strokeWidth={2.2} color="#fff" />
+                  ))}
+                </div>
+              )}
             </div>
             <Bullets items={b.items} variant="arrow" style={{ marginTop: 18 }} />
           </motion.div>
         ))}
-        <motion.div variants={riseIn} style={{ background: colors.surfaceInverse, border: `1px solid ${colors.borderPrimary}`, borderRadius: radius.lg, padding: 30, display: 'flex', flexDirection: 'column' }}>
-          <div style={colTitle}>Non-endemic advertisers</div>
-          <div style={{ color: colors.textMuted, fontSize: 21, lineHeight: 1.45, marginBottom: 20 }}>Anyone wanting to reach an audience — beyond the category.</div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, flex: 1, minHeight: 0 }}>
-            {NONENDEMIC.map((n) => (
-              <div key={n.label} style={{ ...iconPanel, borderRadius: radius.sm, minHeight: 110, flexDirection: 'column', gap: 12, padding: '18px 12px' }}>
-                <n.icon size={64} strokeWidth={2.2} color="#fff" />
-                <span style={{ fontFamily: font.heading, fontWeight: 800, fontSize: 18, color: '#fff', textAlign: 'center' }}>{n.label}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
       <Footer text={FOOTER} />
     </Slide>

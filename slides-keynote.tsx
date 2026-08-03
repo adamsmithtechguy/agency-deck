@@ -41,11 +41,7 @@ export function KCover() {
         </motion.h1>
         <motion.div variants={riseIn} style={{ marginTop: 40 }}><GradientRule width={170} /></motion.div>
         <motion.p variants={riseIn} style={{ fontFamily: font.heading, fontWeight: 700, fontSize: 38, color: colors.text, marginTop: 40, maxWidth: 1150 }}>
-          Where physical retail, digital commerce, media, data become one
-        </motion.p>
-        <motion.p variants={riseIn} style={{ marginTop: 44, fontSize: 24, color: colors.textMuted }}>
-          <span style={{ textTransform: 'uppercase', letterSpacing: 3, fontSize: 18, fontWeight: 700, color: colors.cyan, marginRight: 18 }}>Speaker</span>
-          <b style={{ color: colors.text }}>Jiri Horalek</b>, Founder &amp; CEO, Bright.Blue
+          Where physical retail meets digital commerce, media and data
         </motion.p>
       </div>
       <Footer text={FOOTER} />
@@ -195,9 +191,17 @@ export function KImagine() {
               width: `${ORBIT_R * 2}%`, height: `${ORBIT_R * 2}%`, borderRadius: 999, zIndex: 2,
               border: `1px solid rgba(255,255,255,0.12)`,
             }} />
-            {/* centre B symbol */}
-            <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)', zIndex: 4, filter: 'drop-shadow(0 0 40px rgba(24,62,246,.8))' }}>
-              <BrandSymbol style={{ height: 96 }} />
+            {/* centre B symbol — flex-centred in the hub */}
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 4,
+              pointerEvents: 'none',
+            }}>
+              <BrandSymbol style={{ height: 96, width: 96, objectFit: 'contain', filter: 'drop-shadow(0 0 40px rgba(24,62,246,.8))' }} />
             </div>
             {/* nodes orbiting the mark */}
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 46, repeat: Infinity, ease: 'linear' }} style={{ position: 'absolute', inset: 0 }}>
