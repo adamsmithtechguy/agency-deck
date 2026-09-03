@@ -2,6 +2,8 @@ node_modules/
 dist/
 .DS_Store
 .shots/
+video/
 *.log
 .env
 .env.*
+redstar-retail-media.pdf

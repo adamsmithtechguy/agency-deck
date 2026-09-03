@@ -77,8 +77,7 @@ export function WorldPresenceMap() {
         <FitWorld />
         <TileLayer
           ref={tileRef}
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-          subdomains="abcd"
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
           detectRetina
         />
         {HUBS.map((h) => (

@@ -2,37 +2,10 @@ import { StrictMode, useCallback, useEffect, useState, type CSSProperties, type 
 import ReactDOM from 'react-dom/client'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import './src/index.css'
-import { SlideStage } from './src/components/SlideStage'
-import { BrandProvider } from './src/deck/brand'
-import { colors, font } from './src/theme'
+import { SlideStage } from '../components/SlideStage'
+import { BrandProvider } from './brand'
+import { colors, font } from '../theme'
 
-import { SWhy, SFormats, SLiveData, SCommandCentre } from './slides-supplier'
-import { RSCover, RSMagQuote, RSHfgQuote, RSMediaFocus, RSClose } from './slides-redstar'
-
-/**
- * Taki's® GB × Bright.Blue retail media quote deck.
- *
- * Run:  npm run dev  →  http://localhost:5173/
- */
-const slides: ReactNode[] = [
-  // ── Cover
-  <RSCover />,
-  // ── Who we are (from retail media deck)
-  <SWhy />,
-  // ── Commercial quotes
-  <RSMagQuote />,
-  <RSHfgQuote />,
-  // ── Retail media focus · formats & data
-  <RSMediaFocus />,
-  <SFormats />,
-  <SLiveData />,
-  <SCommandCentre />,
-  // ── Close
-  <RSClose />,
-]
-
-// `?clean` hides on-screen nav chrome. `?video` enables smooth crossfades for recording.
 const CLEAN = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('clean')
 const VIDEO = typeof window !== 'undefined' && new URLSearchParams(window.location.search).has('video')
 
@@ -47,7 +20,7 @@ declare global {
   }
 }
 
-function Player() {
+export function DeckPlayer({ slides }: { slides: ReactNode[] }) {
   const [i, setI] = useState(() => {
     const n = parseInt(new URLSearchParams(window.location.search).get('slide') || '1', 10)
     return Number.isFinite(n) && n >= 1 && n <= slides.length ? n - 1 : 0
@@ -145,7 +118,9 @@ const pager: CSSProperties = {
   fontFamily: font.body, fontSize: 14, color: colors.textMuted, zIndex: 20,
 }
 
-const app = <Player />
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  VIDEO ? app : <StrictMode>{app}</StrictMode>,
-)
+export function mountDeck(slides: ReactNode[]) {
+  const app = <DeckPlayer slides={slides} />
+  ReactDOM.createRoot(document.getElementById('root')!).render(
+    VIDEO ? app : <StrictMode>{app}</StrictMode>,
+  )
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/brand/symbol.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bright.Blue · Decks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100vh;
+        background: #050519; color: #fff;
+        font-family: 'DM Sans', system-ui, sans-serif;
+        padding: 80px 72px;
+      }
+      h1 { font-family: Nunito, sans-serif; font-size: 42px; letter-spacing: -1px; margin: 0 0 8px; }
+      .sub { color: rgba(255,255,255,.55); font-size: 18px; margin-bottom: 48px; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 480px)); gap: 22px; }
+      a.card {
+        display: block; text-decoration: none; color: inherit;
+        background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
+        border-radius: 20px; padding: 28px 30px;
+      }
+      a.card:hover { border-color: rgba(0,191,232,.5); }
+      .k { font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #00BFE8; }
+      .t { font-family: Nunito, sans-serif; font-weight: 800; font-size: 26px; margin: 10px 0 8px; }
+      .d { color: rgba(255,255,255,.6); font-size: 16px; line-height: 1.45; }
+      .url { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,.4); word-break: break-all; }
+    </style>
+  </head>
+  <body>
+    <h1>Bright.Blue decks</h1>
+    <p class="sub">Saved versions. More partner cuts sit here as we make them.</p>
+    <div class="grid">
+      <a class="card" href="./brand-sell-summary.html">
+        <div class="k">Version 01</div>
+        <div class="t">Brand Sell Summary</div>
+        <div class="d">Standard brand sell. Who we are, the shift, listings, media, events, get in touch.</div>
+        <div class="url">/brand-sell-summary.html</div>
+      </a>
+      <a class="card" href="./event-resellers.html">
+        <div class="k">Version 02</div>
+        <div class="t">Event Resellers</div>
+        <div class="d">Connected Events partner programme. Intro, two products, prices, reseller earn.</div>
+        <div class="url">/event-resellers.html</div>
+      </a>
+    </div>
+  </body>
+</html>

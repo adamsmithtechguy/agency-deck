@@ -16,5 +16,14 @@ export default defineConfig({
   build: {
     outDir: resolve(dir, 'dist'),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(dir, 'index.html'),
+        decks: resolve(dir, 'decks.html'),
+        brandSell: resolve(dir, 'brand-sell.html'),
+        brandSellSummary: resolve(dir, 'brand-sell-summary.html'),
+        eventResellers: resolve(dir, 'event-resellers.html'),
+      },
+    },
   },
 })

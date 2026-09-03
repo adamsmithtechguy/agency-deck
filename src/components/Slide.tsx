@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { BASE_W, BASE_H, colors, font, pad } from '../theme'
-import { container } from './anim'
+import { container, isVideoMode } from './anim'
 
 interface SlideProps {
   children: ReactNode
@@ -33,9 +33,10 @@ export function Slide({
   return (
     <motion.div
       variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.35 }}
+      initial={isVideoMode ? 'show' : 'hidden'}
+      animate={isVideoMode ? 'show' : undefined}
+      whileInView={isVideoMode ? undefined : 'show'}
+      viewport={isVideoMode ? undefined : { once: true, amount: 0.35 }}
       style={{
         position: 'relative',
         width: BASE_W,

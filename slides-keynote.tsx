@@ -156,7 +156,7 @@ function orbitPos(angleDeg: number) {
   return { x: 50 + ORBIT_R * Math.cos(rad), y: 50 + ORBIT_R * Math.sin(rad) }
 }
 
-const HUB_NODES = [
+export const HUB_NODES = [
   { icon: Store, label: 'Physical\nRetail', ...orbitPos(-135) },
   { icon: ShoppingCart, label: 'Digital\nCommerce', ...orbitPos(-45) },
   { icon: MonitorPlay, label: 'Retail\nMedia', ...orbitPos(135) },
@@ -214,7 +214,7 @@ export function KImagine() {
     </Slide>
   )
 }
-function OrbitNode({
+export function OrbitNode({
   icon, label, x, y, duration, iconSize = 56, labelStyle,
 }: {
   icon: typeof Store
@@ -243,7 +243,7 @@ function OrbitNode({
   )
 }
 
-function HubNode({ icon, label, x, y }: { icon: typeof Store; label: string; x: number; y: number }) {
+export function HubNode({ icon, label, x, y }: { icon: typeof Store; label: string; x: number; y: number }) {
   return (
     <OrbitNode
       icon={icon}
@@ -262,7 +262,7 @@ const ANYWHERE = [
   { icon: RefreshCw, text: <>Physical + digital as <b style={{ color: colors.text }}>one</b></> },
   { icon: Star, text: <>Every location a <b style={{ color: colors.text }}>flagship</b></> },
 ]
-const VENUES = [
+export const VENUES = [
   { icon: Plane, label: 'Airports' }, { icon: Hotel, label: 'Hotels' }, { icon: Dumbbell, label: 'Gyms' },
   { icon: GraduationCap, label: 'Universities' }, { icon: Building2, label: 'Offices' }, { icon: Armchair, label: 'Leisure' },
 ]
@@ -606,10 +606,10 @@ export function KEstateNetwork() {
 // ─────────────────────────────────────────────── 10 · One integrated platform
 const PLATFORM_INNER_R = 22
 const PLATFORM_OUTER_R = 42
-const PLATFORM_INNER_DURATION = 180
-const PLATFORM_OUTER_DURATION = 300
+export const PLATFORM_INNER_DURATION = 180
+export const PLATFORM_OUTER_DURATION = 300
 
-const INNER_ORBIT = [
+export const INNER_ORBIT = [
   { icon: Smartphone, label: 'Hardware', x: 50, y: 28.5 },
   { icon: Package, label: 'Fulfilment', x: 69.5, y: 39.5 },
   { icon: Boxes, label: 'Inventory', x: 69.5, y: 61.5 },
@@ -617,7 +617,7 @@ const INNER_ORBIT = [
   { icon: CreditCard, label: 'Payments', x: 30.5, y: 61.5 },
   { icon: Cloud, label: 'Software', x: 30.5, y: 39.5 },
 ]
-const OUTER_ORBIT = [
+export const OUTER_ORBIT = [
   { icon: Store, label: 'Physical Retail', x: 50, y: 8 },
   { icon: MonitorPlay, label: 'Retail Media', x: 81.3, y: 23.1 },
   { icon: Megaphone, label: 'DOOH', x: 91, y: 58.9 },
