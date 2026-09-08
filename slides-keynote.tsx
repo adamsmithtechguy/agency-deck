@@ -565,8 +565,10 @@ export function KNetwork() {
 // ──────────────────────────────────── 9b · Connected estate (national UK map)
 const ESTATE_DOT_CSS = `
 .bb-dot{position:relative}
-.bb-dot-core{position:absolute;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:999px;background:#00BFE8;box-shadow:0 0 12px rgba(0,191,232,.9),0 0 4px rgba(255,255,255,.85);opacity:0;transform:scale(.2);animation:bbCoreIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+.bb-dot-core{position:absolute;left:0;top:0;border-radius:999px;background:#00BFE8;box-shadow:0 0 14px rgba(0,191,232,.95),0 0 4px rgba(255,255,255,.85);opacity:0;transform:scale(.2);animation:bbCoreIn .5s cubic-bezier(.2,.8,.2,1) forwards}
+.bb-dot-ring{position:absolute;left:0;top:0;border-radius:999px;border:2px solid rgba(0,191,232,.45);opacity:0;animation:bbRing 2.6s ease-out infinite}
 @keyframes bbCoreIn{to{opacity:1;transform:scale(1)}}
+@keyframes bbRing{0%{opacity:.55;transform:scale(.8)}100%{opacity:0;transform:scale(1.85)}}
 `
 const ESTATE_METRICS = [
   { icon: ScanEye, text: <><b style={{ color: colors.text }}>800+</b> connected devices</> },
