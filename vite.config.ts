@@ -26,6 +26,8 @@ export default defineConfig({
         eventResellers: resolve(dir, 'event-resellers.html'),
         eventVenues: resolve(dir, 'event-venues.html'),
         estateMap: resolve(dir, 'estate-map.html'),
+        connectedRetail: resolve(dir, 'connected-retail.html'),
+        introConnect: resolve(dir, 'intro-connect.html'),
       },
     },
   },

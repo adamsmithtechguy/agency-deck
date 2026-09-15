@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .venues-dist/
+.retail-dist/
 .DS_Store
 .shots/
 video/

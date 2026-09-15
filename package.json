@@ -7,6 +7,10 @@
   "scripts": {
     "dev": "vite",
     "dev:sell": "vite --open /brand-sell-summary.html",
+    "dev:retail": "vite --open /connected-retail.html",
+    "dev:intro": "vite --open /intro-connect.html",
+    "record:intro": "node scripts/record-intro.mjs",
+    "deploy:retail": "npm run build && bash scripts/deploy-retail.sh",
     "dev:occastore": "vite --open /occastore.html",
     "deploy:occastore": "npm run build && cp dist/occastore.html dist/index.html && npx wrangler pages deploy dist --project-name=bright-blue-occastore --branch=main --commit-dirty=true",
     "dev:events": "vite --open /event-resellers.html",
@@ -33,6 +37,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/leaflet": "^1.9.21",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
